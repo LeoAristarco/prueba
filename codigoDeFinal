@@ -1,0 +1,64 @@
+
+a)
+
+# PosicionConductores
+>> getMovilesCercanos(unViaje)
+
+     ArrayList<String> idsConductores = GET "/cars/near?lat=...&lng=...:", (unViaje.getPosicion())
+     
+     ArrayList<Conductor> conductores = em.traerTodosLosConductoresConIDs(idsConductores)
+
+c)
+
+# Viaje
+>> cancelarViaje()
+    medioDePago.cancelarViaje(pasajero)
+
+# Targeta
+>> cancelarViaje(unPasajero)
+    targeta ​= com​.unaBibliotecaTargeta.new
+    targeta.cobrar(titular,numero,fechaDeVencimiento,costoDeCancelacion)
+
+# Efectivo
+>> cancelarViaje(unPasajero)
+    unPasajero.cobrarMulta(costoDeCancelacion)
+
+d)
+
+# Viaje
+>> iniciarViaje(unConductor)
+    self.setMovil(unConductor)
+    unConductor.enviarSolicitudDePasajero()
+
+# Conductor
+>> enviarSolicitudDePasajero()
+ // en esta iteración no haria nada (en otras iteraciones se implementara esta logica)
+
+e)
+
+# Conductor
+>> calificarPorUnViaje(unaCalificacion)
+    reputacion.put(unaCalificacion,(reputacion.get(unaCalificacion) + 1 ))
+
+>> getPromedioCalificacion()
+    // logica de calculo de promedio
+
+# Viaje
+>> cobrarViajeFinal(unCosto)
+    medioDePago.cobrarViajeFinal(unCosto,pasajero)
+
+# Targeta
+>> cobrarViajeFinal(unCosto,unPasajero)
+    targeta ​= com​.unaBibliotecaTargeta.new
+    targeta.cobrar(titular,numero,fechaDeVencimiento,unCosto)
+
+#Efectivo
+>> cobrarViajeFinal(unCosto,unPasajero)
+   unPasajero.cobrarCostoViajeFinal(unCosto)
+
+
+
+
+
+
+
